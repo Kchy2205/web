@@ -79,6 +79,7 @@ p {
 }
 
 .right {
+  display: flex;
   justify-content: flex-end;
 }
 
@@ -102,5 +103,17 @@ p {
 }
 
 .column {
-  margin: 10px;
+  margin: 10px 2px;
+  display: flex;
+  border: 1px solid #888989;
+  padding: 10px;
+  border-top: none;
+  border-bottom: none;
+  margin: -1px;
+}
+.invis-text {
+  color: white;
+}
+.table {
+  display: flex;
 }
