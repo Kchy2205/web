@@ -1,0 +1,200 @@
+body {
+  background-color: #c8e8df;
+}
+
+.head {
+  width: 250px;
+  height: 250px;
+  background-color: #fee56c;
+  border-radius: 50% 50% 50% 50%;
+  z-index: -1;
+  margin: auto;
+  position: relative;
+  top: 100px;
+  justify-items: center;
+}
+.eye {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  background-color: black;
+  position: absolute;
+  bottom: 130px;
+  animation: blink 4s infinite;
+}
+.eye.right {
+  left: 70px;
+}
+.eye.left {
+  right: 70px;
+}
+.nose {
+  width: 80px;
+  height: 50px;
+  background-color: #fd9e1d;
+  border-radius: 50%;
+  position: absolute;
+  bottom: 65px;
+}
+.mouth {
+  width: 60px;
+  height: 20px;
+  position: absolute;
+  bottom: 66px;
+  border-bottom: 4px solid #222;
+  border-radius: 0 0 50% 50%;
+}
+.body {
+  width: 330px;
+  height: 300px;
+  background-color: #fee56c;
+  border-radius: 50% 50% 50% 50%;
+  z-index: -1;
+  margin: auto;
+  position: relative;
+  top: 50px;
+  justify-items: center;
+}
+.arm.right {
+  width: 100px;
+  height: 140px;
+  background-color: #fed84f;
+  border-radius: 50%;
+  position: absolute;
+  bottom: 90px;
+  right: -20px;
+  animation: flap-right 1s ease-in-out infinite;
+  transform-origin: top;
+}
+.arm.left {
+  width: 100px;
+  height: 140px;
+  background-color: #fed84f;
+  border-radius: 50%;
+  position: absolute;
+  bottom: 90px;
+  left: -20px;
+  animation: flap-left 1s ease-in-out infinite;
+  transform-origin: top;
+}
+.foot.right {
+  width: 80px;
+  height: 50px;
+  background-color: #fe9f1c;
+  border-radius: 40%;
+  position: absolute;
+  bottom: -20px;
+  right: 60px;
+}
+.foot.left {
+  width: 80px;
+  height: 50px;
+  background-color: #fe9f1c;
+  border-radius: 40%;
+  position: absolute;
+  bottom: -20px;
+  left: 60px;
+}
+.eyelash.right {
+  width: 30px;
+  height: 4px;
+  position: absolute;
+  bottom: 34px;
+  border-bottom: 4px solid #222;
+  border-radius: 0 0 50% 50%;
+  right: 3px;
+  transform: rotate(180deg);
+}
+.eyelash.left {
+  width: 30px;
+  height: 4px;
+  position: absolute;
+  bottom: 34px;
+  border-bottom: 4px solid #222;
+  border-radius: 0 0 50% 50%;
+  left: 3px;
+  transform: rotate(180deg);
+}
+.duck {
+  animation: fly 3s ease-in-out infinite;
+}
+@keyframes fly {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(50px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+@keyframes flap-right {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(-30deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+@keyframes flap-left {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(30deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+@keyframes blink {
+  0% {
+    transform: scaleY(1);
+  }
+  47% {
+    transform: scaleY(1);
+  }
+  50% {
+    transform: scaleY(0.1);
+  }
+  53% {
+    transform: scaleY(1);
+  }
+  100% {
+    transform: scaleY(1);
+  }
+}
+.hat {
+  width: 200px;
+  height: 40px;
+  transform: rotate(5deg);
+  background-color: orange;
+  position: absolute;
+  bottom: 220px;
+}
+.tassel {
+  width: 5px;
+  height: 50px;
+  background-color: black;
+  position: absolute;
+  left: 195px;
+  top: 35px;
+  animation: tassel-swing 3s ease-in-out infinite;
+  transform-origin: top;
+  border-radius: 100% 100% 0% 0%;
+}
+@keyframes tassel-swing {
+  0% {
+    transform: rotate(-10deg);
+  }
+  50% {
+    transform: rotate(10deg);
+  }
+  100% {
+    transform: rotate(-10deg);
+  }
+}
