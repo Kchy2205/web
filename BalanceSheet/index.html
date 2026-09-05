@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Balance Sheet</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main>
+      <section>
+        <h1>
+          <span class="flex">
+            <span>Greenfield University - Student Activities Club</span>
+            <span>Balance Sheet (RM)</span>
+          </span>
+        </h1>
+        <div id="years" aria-hidden="true">
+          <span class="year">2023</span>
+          <span class="year">2024</span>
+          <span class="year">2025</span>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <caption>
+              Assets
+            </caption>
+            <thead>
+              <tr>
+                <td></td>
+                <th><span class="sr-only year">2023</span></th>
+                <th><span class="sr-only year">2024</span></th>
+                <th class="current"><span class="sr-only year">2025</span></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="data">
+                <th>
+                  Cash on Hand
+                  <span class="description"
+                    >Float kept for small purchases.</span
+                  >
+                </th>
+                <td>RM 150</td>
+                <td>RM 200</td>
+                <td class="current">RM 300</td>
+              </tr>
+              <tr class="data">
+                <th>
+                  Bank Account
+                  <span class="description">Main club checking/savings.</span>
+                </th>
+                <td>RM 1,200</td>
+                <td>RM 2,400</td>
+                <td class="current">RM 3,000</td>
+              </tr>
+              <tr class="data">
+                <th>
+                  Petty Cash Fund
+                  <span class="description"
+                    >For immediate small reimbursements.</span
+                  >
+                </th>
+                <td>RM 50</td>
+                <td>RM 75</td>
+                <td class="current">RM 100</td>
+              </tr>
+              <tr class="data">
+                <th>
+                  Account Receivable
+                  <span class="description"
+                    >Event fees billed but not yet received.</span
+                  >
+                </th>
+                <td>RM 100</td>
+                <td>RM 150</td>
+                <td class="current">RM 200</td>
+              </tr>
+              <tr class="data">
+                <th>
+                  Inventory (merchandise)
+                  <span class="description"
+                    >T-shirts, badges, promo items.</span
+                  >
+                </th>
+                <td>RM 300</td>
+                <td>RM 400</td>
+                <td class="current">RM 500</td>
+              </tr>
+              <tr class="data">
+                <th>
+                  Equipment (gross)
+                  <span class="description"
+                    >PA system, tables, club-owned gear.</span
+                  >
+                </th>
+                <td>RM 2,000</td>
+                <td>RM 2,200</td>
+                <td class="current">RM 2,500</td>
+              </tr>
+              <tr class="data">
+                <th>
+                  Accumulated Depreciation
+                  <span class="description"
+                    >Total depreciation to date (contra-asset)</span
+                  >
+                </th>
+                <td>RM -500</td>
+                <td>RM -800</td>
+                <td class="current">RM -1,100</td>
+              </tr>
+              <tr class="data">
+                <th>
+                  Net Equipment Value
+                  <span class="description">Equipment after depreciation.</span>
+                </th>
+                <td>RM 1,500</td>
+                <td>RM 1,400</td>
+                <td class="current">RM 1,400</td>
+              </tr>
+              <tr class="total">
+                <th>Total Assets<span class="sr-only">Assets</span></th>
+                <td>RM 3,300</td>
+                <td>RM 4,625</td>
+                <td class="current">RM 5,500</td>
+              </tr>
+            </tbody>
+          </table>
+          <table>
+            <caption>
+              Liabilities
+            </caption>
+            <thead>
+              <tr>
+                <td></td>
+                <th><span class="sr-only">2023</span></th>
+                <th><span class="sr-only">2024</span></th>
+                <th><span class="sr-only">2025</span></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="data">
+                <th>
+                  Accounts Payable
+                  <span class="description">Unpaid supplier invoices.</span>
+                </th>
+                <td>RM 250</td>
+                <td>RM 300</td>
+                <td class="current">RM 200</td>
+              </tr>
+              <tr class="data">
+                <th>
+                  Deferred Revenue
+                  <span class="description"
+                    >Membership/event fees collected in advance.</span
+                  >
+                </th>
+                <td>RM 400</td>
+                <td>RM 600</td>
+                <td class="current">RM 800</td>
+              </tr>
+              <tr class="data">
+                <th>
+                  Deposits Payable
+                  <span class="description"
+                    >Venue/booth deposits refunded.</span
+                  >
+                </th>
+                <td>RM 100</td>
+                <td>RM 150</td>
+                <td class="current">RM 200</td>
+              </tr>
+              <tr class="data">
+                <th>
+                  Equipment Loan
+                  <span class="description"
+                    >Venue/booth deposits refunded.</span
+                  >
+                </th>
+                <td>RM 1,500</td>
+                <td>RM 1,500</td>
+                <td class="current">RM 1,000</td>
+              </tr>
+              <tr class="total">
+                <th>
+                  Total Liabilities<span class="sr-only">Liabilities</span>
+                </th>
+                <td>RM 2,250</td>
+                <td>RM 2,550</td>
+                <td class="current">RM 2,200</td>
+              </tr>
+            </tbody>
+          </table>
+          <table>
+            <caption>
+              Equity (Net Worth)
+            </caption>
+            <tr class="data">
+              <th>
+                Opening Balance (beginning of year)
+                <span class="description">Prior year retained funds</span>
+              </th>
+              <td>RM 800</td>
+              <td>RM 1,050</td>
+              <td class="current">RM 2,075</td>
+            </tr>
+            <thead>
+              <tr>
+                <td></td>
+                <th><span class="sr-only">2023</span></th>
+                <th><span class="sr-only">2024</span></th>
+                <th><span class="sr-only">2025</span></th>
+              </tr>
+              <tr class="data">
+                <th>
+                  Surplus / (Deficit) this year
+                  <span class="description"
+                    >Net income from activities after expenses</span
+                  >
+                </th>
+                <td>RM 250</td>
+                <td>RM 1,025</td>
+                <td class="current">RM 1,225</td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="total">
+                <th>
+                  Total Equity (Net Worth)
+                  <span class="sr-only">Net Worth</span>
+                </th>
+                <td>RM 1,050</td>
+                <td>RM 2,075</td>
+                <td class="current">RM 3,300</td>
+              </tr>
+            </tbody>
+          </table>
+          <table>
+            <caption>
+              Final Check
+            </caption>
+            <thead>
+              <tr>
+                <td></td>
+                <th><span class="sr-only">2023</span></th>
+                <th><span class="sr-only">2024</span></th>
+                <th><span class="sr-only">2025</span></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="total">
+                <th>
+                  Total Assets
+                  <span class="sr-only">Assets</span>
+                </th>
+                <td>RM 3,300</td>
+                <td>RM 4,625</td>
+                <td class="current">RM 5,500</td>
+              </tr>
+            </tbody>
+            <tbody>
+              <tr class="total">
+                <th>
+                  Total Liabilities + Equity
+                  <span class="sr-only">Liabilities + Equity</span>
+                </th>
+                <td>RM 3,300</td>
+                <td>RM 4,625</td>
+                <td class="current">RM 5,500</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
