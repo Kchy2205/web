@@ -1,0 +1,145 @@
+body {
+  font-family: Arial, sans-serif;
+  font-size: 40px;
+}
+.clock {
+  position: relative;
+  top: 150px;
+  left: 35%;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background-color: white;
+  border: 5px solid black;
+}
+.hour-hand {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 8px;
+  height: 120px;
+  background-color: black;
+  transform-origin: top center;
+  animation: hour-hand 144s linear 0s infinite;
+}
+.minute-hand {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 6px;
+  height: 180px;
+  background-color: black;
+  transform-origin: top center;
+  animation: minute-hand 12s linear 0s infinite;
+}
+.second-hand {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 2px;
+  height: 230px;
+  background-color: red;
+  transform-origin: top center;
+  animation: second-hand 1s linear 0s infinite;
+}
+.center-circle {
+  position: absolute;
+  top: 50%;
+  left: 50.5%;
+  width: 20px;
+  height: 20px;
+  background-color: black;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+._12 {
+  position: absolute;
+  top: 10px;
+  left: 45.5%;
+}
+._1 {
+  position: absolute;
+  top: 52px;
+  left: 70%;
+}
+._2 {
+  position: absolute;
+  top: 125px;
+  left: 86%;
+}
+._3 {
+  position: absolute;
+  top: 225px;
+  left: 92%;
+}
+._4 {
+  position: absolute;
+  top: 325px;
+  left: 86%;
+}
+._5 {
+  position: absolute;
+  top: 400px;
+  left: 70%;
+}
+._6 {
+  position: absolute;
+  bottom: 10px;
+  right: 47.8%;
+}
+._7 {
+  position: absolute;
+  bottom: 52px;
+  right: 70%;
+}
+._8 {
+  position: absolute;
+  bottom: 125px;
+  right: 86%;
+}
+._9 {
+  position: absolute;
+  bottom: 230px;
+  right: 92%;
+}
+._10 {
+  position: absolute;
+  bottom: 325px;
+  right: 83%;
+}
+._11 {
+  position: absolute;
+  bottom: 400px;
+  right: 70%;
+}
+img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@keyframes hour-hand {
+  0% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(540deg);
+  }
+}
+@keyframes minute-hand {
+  0% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(540deg);
+  }
+}
+@keyframes second-hand {
+  0% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(540deg);
+  }
+}
