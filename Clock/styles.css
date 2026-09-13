@@ -1,6 +1,7 @@
 body {
-  font-family: Arial, sans-serif;
+  font-family: sans-serif;
   font-size: 40px;
+  background-color: black;
 }
 .clock {
   position: relative;
@@ -9,7 +10,6 @@ body {
   width: 500px;
   height: 500px;
   border-radius: 50%;
-  background-color: white;
   border: 5px solid black;
 }
 .hour-hand {
@@ -18,7 +18,7 @@ body {
   left: 50%;
   width: 8px;
   height: 120px;
-  background-color: black;
+  background-color: white;
   transform-origin: top center;
   animation: hour-hand 144s linear 0s infinite;
 }
@@ -28,7 +28,7 @@ body {
   left: 50%;
   width: 6px;
   height: 180px;
-  background-color: black;
+  background-color: white;
   transform-origin: top center;
   animation: minute-hand 12s linear 0s infinite;
 }
@@ -36,7 +36,7 @@ body {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 2px;
+  width: 3px;
   height: 230px;
   background-color: red;
   transform-origin: top center;
@@ -142,4 +142,7 @@ img {
   100% {
     transform: rotate(540deg);
   }
+}
+.numbers {
+  color: white;
 }
