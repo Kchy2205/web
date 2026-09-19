@@ -1,15 +1,16 @@
 html {
   box-sizing: border-box;
 }
-body {
+.body {
   font-family: Helvetica, Arial, sans-serif;
   text-align: center;
+  padding: 10px;
 }
 .box_a {
-  width: auto;
-  height: 100px;
+  width: 50%;
+  height: 80px;
   background-color: #414141;
-  margin: 15px;
+  margin: 5px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -17,13 +18,78 @@ body {
   font-size: 20px;
 }
 .box_b {
-  width: auto;
-  height: 100px;
+  width: 50%;
+  height: 80px;
   background-color: #414141;
-  margin: 15px;
+  margin: 5px;
   display: flex;
   justify-content: center;
   align-items: center;
   color: white;
   font-size: 20px;
+}
+.boxes {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.sidebar {
+  width: auto;
+  height: 60px;
+  background-color: #dcdcdc;
+  margin: 10px;
+  padding-left: 20px;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  color: black;
+  font-size: 16px;
+}
+.description {
+  display: flex;
+  justify-content: left;
+  margin: 20px;
+}
+.mobile-text {
+  margin: 20px;
+}
+
+@media (max-width: 600px) and (min-width: 0px) {
+  .boxes {
+    flex-direction: column;
+  }
+  .box_a,
+  .box_b {
+    width: 95%;
+  }
+  .sidebar {
+    display: none;
+  }
+  .body {
+    background-color: lightpink;
+  }
+  .mobile-text {
+    text-align: left;
+  }
+}
+@media (min-width: 601px) and (max-width: 900px) {
+  .body {
+    background-color: lightgreen;
+  }
+  .mobile-text {
+    text-align: center;
+    font-family:
+      Times New Roman,
+      serif;
+  }
+}
+@media (min-width: 901px) {
+  .body {
+    background-color: lightblue;
+  }
+  .mobile-text {
+    font-family:
+      Times New Roman,
+      serif;
+  }
 }
