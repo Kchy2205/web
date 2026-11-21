@@ -1,0 +1,727 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="A collection of web projects by Kingsley."
+    />
+    <title>Kingsley — Project Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --ink: #171717;
+        --muted: #6d6d68;
+        --paper: #f3f2ed;
+        --white: #fff;
+        --lime: #d7ff43;
+        --line: #deddd6;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        font-family: "DM Sans", sans-serif;
+        color: var(--ink);
+        background:
+          radial-gradient(
+            circle at 92% 4%,
+            rgba(215, 255, 67, 0.26),
+            transparent 17rem
+          ),
+          var(--paper);
+      }
+
+      a {
+        color: inherit;
+      }
+
+      .shell {
+        width: min(1180px, calc(100% - 40px));
+        margin: 0 auto;
+      }
+
+      header {
+        height: 88px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 11px;
+        font-family: "Manrope", sans-serif;
+        font-weight: 800;
+        letter-spacing: -0.03em;
+        text-decoration: none;
+      }
+
+      .brand-mark {
+        width: 38px;
+        height: 38px;
+        display: grid;
+        place-items: center;
+        border: 1.5px solid var(--ink);
+        border-radius: 50%;
+        background: var(--lime);
+        font-size: 13px;
+      }
+
+      .header-meta {
+        color: var(--muted);
+        font-size: 13px;
+        font-weight: 600;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .hero {
+        min-height: 390px;
+        display: grid;
+        grid-template-columns: 1.25fr 0.75fr;
+        align-items: end;
+        gap: 40px;
+        padding: 82px 0 72px;
+      }
+
+      .eyebrow {
+        display: flex;
+        align-items: center;
+        gap: 9px;
+        margin-bottom: 20px;
+        color: var(--muted);
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .eyebrow::before {
+        content: "";
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: #68a16b;
+        box-shadow: 0 0 0 4px rgba(104, 161, 107, 0.13);
+      }
+
+      h1 {
+        max-width: 760px;
+        margin: 0;
+        font-family: "Manrope", sans-serif;
+        font-size: clamp(58px, 8vw, 104px);
+        line-height: 0.87;
+        letter-spacing: -0.075em;
+      }
+
+      .hero-aside {
+        max-width: 340px;
+        justify-self: end;
+        padding-bottom: 7px;
+      }
+
+      .hero-aside p {
+        margin: 0 0 24px;
+        color: var(--muted);
+        font-size: 18px;
+        line-height: 1.55;
+      }
+
+      .count {
+        display: inline-flex;
+        align-items: baseline;
+        gap: 8px;
+        font-family: "Manrope", sans-serif;
+        font-size: 14px;
+        font-weight: 700;
+      }
+
+      .count strong {
+        font-size: 30px;
+        letter-spacing: -0.04em;
+      }
+
+      .projects {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 22px;
+        padding-bottom: 80px;
+      }
+
+      .project-card {
+        overflow: hidden;
+        border: 1px solid var(--line);
+        border-radius: 20px;
+        background: var(--white);
+        text-decoration: none;
+        transition:
+          transform 180ms ease,
+          box-shadow 180ms ease;
+      }
+
+      .project-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 18px 40px rgba(34, 34, 28, 0.09);
+      }
+
+      .preview {
+        height: 300px;
+        display: grid;
+        place-items: center;
+        overflow: hidden;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .project-info {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        min-height: 92px;
+        padding: 20px 24px;
+      }
+
+      .project-info h2 {
+        margin: 0 0 5px;
+        font-family: "Manrope", sans-serif;
+        font-size: 20px;
+        letter-spacing: -0.03em;
+      }
+
+      .project-info p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 13px;
+      }
+
+      .arrow {
+        width: 44px;
+        height: 44px;
+        flex: 0 0 auto;
+        display: grid;
+        place-items: center;
+        border: 1px solid var(--line);
+        border-radius: 50%;
+        font-size: 20px;
+        transition:
+          background 180ms ease,
+          transform 180ms ease;
+      }
+
+      .project-card:hover .arrow {
+        transform: rotate(-45deg);
+        background: var(--lime);
+      }
+
+      /* Project thumbnails */
+      .preview-registration {
+        background: #91b7c9;
+        padding: 26px;
+      }
+
+      .fair-window {
+        width: 78%;
+        height: 235px;
+        overflow: hidden;
+        border: 8px solid #eff4f3;
+        border-radius: 8px;
+        background: #f7fbfc;
+        box-shadow: 0 12px 24px rgba(36, 82, 103, 0.18);
+      }
+
+      .fair-nav {
+        height: 38px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 16px;
+        background: #2a6f97;
+        color: white;
+        font-size: 9px;
+        font-weight: 700;
+      }
+
+      .fair-hero {
+        height: 84px;
+        display: grid;
+        place-items: center;
+        background: #61a5c2;
+        color: white;
+        font-family: "Manrope", sans-serif;
+        font-size: 23px;
+        font-weight: 800;
+      }
+
+      .fair-cards {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
+        padding: 13px;
+      }
+
+      .fair-cards i {
+        height: 62px;
+        border-radius: 5px;
+        background: #ff9f1c;
+      }
+
+      .fair-cards i:nth-child(2) {
+        background: #e63946;
+      }
+      .fair-cards i:nth-child(3) {
+        background: #8338ec;
+      }
+
+      .preview-clock {
+        background: #1d1d1d;
+      }
+
+      .clock-preview {
+        position: relative;
+        width: 210px;
+        height: 210px;
+        border: 3px solid #f4f1e8;
+        border-radius: 50%;
+        box-shadow: 0 0 0 12px #292929;
+      }
+
+      .clock-preview::before,
+      .clock-preview::after {
+        content: "";
+        position: absolute;
+        left: 50%;
+        bottom: 50%;
+        transform-origin: bottom;
+        border-radius: 99px;
+      }
+
+      .clock-preview::before {
+        width: 7px;
+        height: 72px;
+        background: #f4f1e8;
+        transform: translateX(-50%) rotate(35deg);
+      }
+
+      .clock-preview::after {
+        width: 4px;
+        height: 92px;
+        background: #d7ff43;
+        transform: translateX(-50%) rotate(132deg);
+      }
+
+      .clock-dot {
+        position: absolute;
+        z-index: 2;
+        left: 50%;
+        top: 50%;
+        width: 15px;
+        height: 15px;
+        transform: translate(-50%, -50%);
+        border-radius: 50%;
+        background: #d7ff43;
+      }
+
+      .preview-nutrition {
+        background: #dfe3da;
+      }
+
+      .nutrition-preview {
+        width: 190px;
+        height: 246px;
+        padding: 9px;
+        border: 3px solid #1d1d1d;
+        background: white;
+        box-shadow: 10px 12px 0 rgba(29, 29, 29, 0.1);
+        text-align: left;
+      }
+
+      .nutrition-preview h3 {
+        margin: 0;
+        border-bottom: 7px solid #222;
+        font-family: "Manrope", sans-serif;
+        font-size: 19px;
+        line-height: 1.1;
+      }
+
+      .nutrition-preview b {
+        display: block;
+        margin: 8px 0 4px;
+        font-size: 34px;
+        line-height: 1;
+      }
+
+      .nutrition-preview i {
+        display: block;
+        height: 5px;
+        margin-top: 5px;
+        border-top: 1px solid #777;
+        border-bottom: 1px solid #777;
+      }
+
+      .preview-duck {
+        background: #c9e7df;
+      }
+
+      .duck-preview {
+        position: relative;
+        width: 210px;
+        height: 225px;
+      }
+
+      .duck-head {
+        position: absolute;
+        z-index: 2;
+        left: 50%;
+        top: 10px;
+        width: 126px;
+        height: 126px;
+        transform: translateX(-50%);
+        border-radius: 52% 52% 48% 48%;
+        background: #fedf67;
+      }
+
+      .duck-head::before,
+      .duck-head::after {
+        content: "";
+        position: absolute;
+        top: 54px;
+        width: 17px;
+        height: 17px;
+        border-radius: 50%;
+        background: #252525;
+      }
+
+      .duck-head::before {
+        left: 28px;
+      }
+      .duck-head::after {
+        right: 28px;
+      }
+
+      .duck-beak {
+        position: absolute;
+        z-index: 3;
+        left: 50%;
+        top: 85px;
+        width: 58px;
+        height: 27px;
+        transform: translateX(-50%);
+        border-radius: 50%;
+        background: #fd9e1d;
+      }
+
+      .duck-body {
+        position: absolute;
+        left: 50%;
+        bottom: 3px;
+        width: 170px;
+        height: 150px;
+        transform: translateX(-50%);
+        border-radius: 50%;
+        background: #fee56c;
+      }
+
+      .preview-sheet {
+        background: #c9d7ee;
+      }
+
+      .sheet-preview {
+        width: 72%;
+        max-width: 390px;
+        height: 220px;
+        padding: 18px;
+        background: #fafafa;
+        border: 1px solid #8fa3bf;
+        box-shadow: 10px 12px 0 rgba(44, 67, 102, 0.12);
+      }
+
+      .sheet-preview h3 {
+        margin: 0 0 14px;
+        border-bottom: 2px solid #0a0a23;
+        font-size: 12px;
+      }
+
+      .sheet-row {
+        display: grid;
+        grid-template-columns: 1.5fr repeat(3, 0.5fr);
+        gap: 5px;
+        height: 23px;
+        align-items: center;
+        border-bottom: 1px solid #ddd;
+        color: #555;
+        font-size: 8px;
+      }
+
+      .sheet-row.header {
+        background: #0a0a23;
+        color: white;
+        padding: 0 4px;
+      }
+
+      .preview-media {
+        background: #f0e1e5;
+      }
+
+      .media-preview {
+        width: 78%;
+        height: 220px;
+        display: grid;
+        grid-template-columns: 1fr 150px;
+        gap: 12px;
+        padding: 20px;
+        background: white;
+        border: 1px solid #d5c5c9;
+        border-radius: 4px;
+        box-shadow: 10px 12px 0 rgba(91, 61, 70, 0.08);
+      }
+
+      .media-main {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+        align-content: center;
+      }
+
+      .media-main i {
+        height: 90px;
+        border-radius: 5px;
+        background: #414141;
+      }
+
+      .media-side {
+        border-radius: 5px;
+        background: #dcdcdc;
+      }
+
+      footer {
+        display: flex;
+        justify-content: space-between;
+        padding: 28px 0 42px;
+        border-top: 1px solid var(--line);
+        color: var(--muted);
+        font-size: 13px;
+      }
+
+      @media (max-width: 760px) {
+        .shell {
+          width: min(100% - 28px, 1180px);
+        }
+
+        header {
+          height: 72px;
+        }
+
+        .header-meta {
+          display: none;
+        }
+
+        .hero {
+          min-height: 360px;
+          grid-template-columns: 1fr;
+          gap: 28px;
+          padding: 56px 0 48px;
+        }
+
+        h1 {
+          font-size: clamp(54px, 18vw, 82px);
+        }
+
+        .hero-aside {
+          justify-self: start;
+        }
+
+        .projects {
+          grid-template-columns: 1fr;
+        }
+
+        .preview {
+          height: 255px;
+        }
+
+        footer {
+          gap: 20px;
+          flex-direction: column;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+
+        .project-card,
+        .arrow {
+          transition: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="shell">
+      <header>
+        <a class="brand" href="#" aria-label="Back to top">
+          <span class="brand-mark">K</span>
+          <span>Kingsley</span>
+        </a>
+        <div class="header-meta">Web Developer · Portfolio</div>
+      </header>
+
+      <main>
+        <section class="hero" aria-labelledby="portfolio-heading">
+          <div>
+            <div class="eyebrow">Selected work · 2026</div>
+            <h1 id="portfolio-heading">Built with curiosity.</h1>
+          </div>
+          <div class="hero-aside">
+            <p>
+              A collection of small web experiences exploring layout, motion,
+              and creative code.
+            </p>
+            <div class="count"><strong>06</strong> completed projects</div>
+          </div>
+        </section>
+
+        <section class="projects" aria-label="Completed projects">
+          <a class="project-card" href="./RegistrationWebsite/index.html">
+            <div class="preview preview-registration">
+              <div class="fair-window" aria-hidden="true">
+                <div class="fair-nav">
+                  <span>K12 INNOVATION FAIR</span><span>About · Register</span>
+                </div>
+                <div class="fair-hero">Explore. Create. Learn.</div>
+                <div class="fair-cards"><i></i><i></i><i></i></div>
+              </div>
+            </div>
+            <div class="project-info">
+              <div>
+                <h2>Innovation Fair</h2>
+                <p>Event · Registration</p>
+              </div>
+              <span class="arrow" aria-hidden="true">↗</span>
+            </div>
+          </a>
+
+          <a class="project-card" href="./FlyingDuck/index.html">
+            <div class="preview preview-duck">
+              <div class="duck-preview" aria-hidden="true">
+                <div class="duck-head"></div>
+                <div class="duck-beak"></div>
+                <div class="duck-body"></div>
+              </div>
+            </div>
+            <div class="project-info">
+              <div>
+                <h2>Flying Duck</h2>
+                <p>Illustration · Animation</p>
+              </div>
+              <span class="arrow" aria-hidden="true">↗</span>
+            </div>
+          </a>
+
+          <a class="project-card" href="./NutritionLabel/index.html">
+            <div class="preview preview-nutrition">
+              <div class="nutrition-preview" aria-hidden="true">
+                <h3>Nutrition Facts</h3>
+                <b>220</b>
+                <i></i><i></i><i></i><i></i><i></i>
+              </div>
+            </div>
+            <div class="project-info">
+              <div>
+                <h2>Nutrition Label</h2>
+                <p>Typography · CSS Layout</p>
+              </div>
+              <span class="arrow" aria-hidden="true">↗</span>
+            </div>
+          </a>
+
+          <a class="project-card" href="./Clock/index.html">
+            <div class="preview preview-clock">
+              <div class="clock-preview" aria-hidden="true">
+                <span class="clock-dot"></span>
+              </div>
+            </div>
+            <div class="project-info">
+              <div>
+                <h2>Animated Clock</h2>
+                <p>CSS · Timepiece</p>
+              </div>
+              <span class="arrow" aria-hidden="true">↗</span>
+            </div>
+          </a>
+
+          <a class="project-card" href="./BalanceSheet/index.html">
+            <div class="preview preview-sheet">
+              <div class="sheet-preview" aria-hidden="true">
+                <h3>Greenfield University — Balance Sheet</h3>
+                <div class="sheet-row header">
+                  <span>Assets</span><span>2023</span><span>2024</span
+                  ><span>2025</span>
+                </div>
+                <div class="sheet-row">
+                  <span>Cash on hand</span><span>150</span><span>200</span
+                  ><span>300</span>
+                </div>
+                <div class="sheet-row">
+                  <span>Bank account</span><span>1200</span><span>2400</span
+                  ><span>3000</span>
+                </div>
+                <div class="sheet-row">
+                  <span>Inventory</span><span>300</span><span>400</span
+                  ><span>500</span>
+                </div>
+                <div class="sheet-row">
+                  <span>Total assets</span><span>3300</span><span>4625</span
+                  ><span>5500</span>
+                </div>
+              </div>
+            </div>
+            <div class="project-info">
+              <div>
+                <h2>Balance Sheet</h2>
+                <p>Data · Accessible Tables</p>
+              </div>
+              <span class="arrow" aria-hidden="true">↗</span>
+            </div>
+          </a>
+
+          <a class="project-card" href="./MediaQuery/index.html">
+            <div class="preview preview-media">
+              <div class="media-preview" aria-hidden="true">
+                <div class="media-main"><i></i><i></i></div>
+                <div class="media-side"></div>
+              </div>
+            </div>
+            <div class="project-info">
+              <div>
+                <h2>Media Query Lab</h2>
+                <p>Responsive · Breakpoints</p>
+              </div>
+              <span class="arrow" aria-hidden="true">↗</span>
+            </div>
+          </a>
+        </section>
+      </main>
+
+      <footer>
+        <span>© 2026 Kingsley</span>
+        <span>Designed &amp; built with HTML &amp; CSS</span>
+      </footer>
+    </div>
+  </body>
+</html>
