@@ -1,0 +1,380 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Word Game!</title>
+
+    <style>
+      body {
+        font-family: "Times New Roman", sans-serif;
+      }
+
+      .foodedition {
+        color: brown;
+        font-size: 0.84em;
+        margin: 5px;
+        margin-left: 10px;
+      }
+
+      .countryedition {
+        color: green;
+        font-size: 0.84em;
+        margin: 5px;
+        margin-left: 10px;
+      }
+
+      .scrambled,
+      input,
+      button {
+        font-family: "Times New Roman", sans-serif;
+        font-size: 1.5em;
+      }
+
+      .scrambled {
+        display: inline-block;
+      }
+
+      .wordlist {
+        display: none;
+      }
+
+      .food-background {
+        background-color: rgb(196, 126, 42);
+      }
+
+      .country-background {
+        background-color: rgb(59, 194, 25);
+      }
+
+      #score {
+        color: rgb(82, 245, 0);
+        font-size: 2.5em;
+        font-family: monospace;
+      }
+
+      #highscore {
+        color: blue;
+        font-size: 1.8em;
+        font-family: monospace;
+      }
+
+      #message {
+        display: inline-block;
+        padding: 10px;
+        background-color: transparent;
+        font-size: 1.2em;
+        font-family: monospace;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>
+      Word game!
+
+      <button type="button" class="foodedition">Food Edition!</button>
+
+      <button type="button" class="countryedition">Country Edition!</button>
+    </h1>
+
+    <!-- FOOD WORDLIST -->
+    <div class="wordlist" id="foodlist">
+      Apple Bacon Bagel Banana Barbecue Beans Beef Beer Biscuit Bread Broccoli
+      Brownie Burger Burrito Butter Cake Candy Caramel Carrot Cashew Cauliflower
+      Cereal Cheese Cheesecake Cherries Chicken Chickpeas Chocolate Cinnamon
+      Coconut Coffee Cookie Corn Cornbread Croissant Cucumber Curry Donut
+      Dumpling Egg Enchilada Falafel Garlic Gelato Ginger Grapes Ham Hamburger
+      Honey Hummus Jam Kebab Ketchup Kimchi Lasagna Lemon Lentils Lobster Mango
+      Mayonnaise Meatballs Milk Milkshake Muffin Mushrooms Nachos Noodles
+      Oatmeal Onion Orange Pancake Pasta Peach Pear Peas Pho Pie Pineapple Pizza
+      Popcorn Pork Potato Pretzel Pudding Quesadilla Ramen Rice Salad Salmon
+      Salsa Sandwich Sausage Shrimp Soup Spaghetti Steak Strawberry Sushi Taco
+      Toast
+    </div>
+
+    <!-- COUNTRY WORDLIST -->
+    <div class="wordlist" id="countrylist">
+      Afghanistan Albania Algeria Andorra Angola Argentina Armenia Australia
+      Austria Azerbaijan Bahamas Bahrain Bangladesh Barbados Belarus Belgium
+      Belize Benin Bhutan Bolivia Botswana Brazil Brunei Bulgaria Burkina Faso
+      Burundi Cabo Verde Cambodia Cameroon Canada Central African Republic Chad
+      Chile China Colombia Comoros Costa Rica Croatia Cuba Cyprus Czechia
+      Democratic Republic of the Congo Denmark Djibouti Dominica Dominican
+      Republic Ecuador Egypt El Salvador Equatorial Guinea Eritrea Estonia
+      Eswatini Ethiopia Fiji Finland France Gabon Gambia Georgia Germany Ghana
+      Greece Grenada Guatemala Guinea Guinea-Bissau Guyana Haiti Holy See
+      Honduras Hungary Iceland India Indonesia Iran Iraq Ireland Israel Italy
+      Ivory Coast Jamaica Japan Jordan Kazakhstan Kenya Kiribati Kuwait
+      Kyrgyzstan Laos Latvia Lebanon Lesotho Liberia Libya Liechtenstein
+      Lithuania Luxembourg Madagascar Malawi Malaysia Maldives Mali Malta
+      Marshall Islands Mauritania Mauritius Mexico Micronesia Moldova Monaco
+      Mongolia Montenegro Morocco Mozambique Myanmar Namibia Nauru Nepal
+      Netherlands New Zealand Nicaragua Niger Nigeria North Korea North
+      Macedonia Norway Oman Pakistan Palau Palestine State Panama Papua New
+      Guinea Paraguay Peru Philippines Poland Portugal Qatar Republic of the
+      Congo Romania Russia Rwanda Saint Lucia Samoa San Marino Saudi Arabia
+      Senegal Serbia Seychelles Sierra Leone Singapore Slovakia Slovenia Solomon
+      Islands Somalia South Africa South Korea South Sudan Spain Sri Lanka Sudan
+      Suriname Sweden Switzerland Syria Tajikistan Tanzania Thailand Timor-Leste
+      Togo Tonga Tunisia Turkey Turkmenistan Tuvalu Uganda Ukraine United Arab
+      Emirates United Kingdom United States of America Uruguay Uzbekistan
+      Vanuatu Venezuela Vietnam Yemen Zambia Zimbabwe
+    </div>
+
+    <!-- GAME -->
+    <form id="joke-form">
+      <label id="instruction">
+        Unscramble these letters to form the name of a food or drink:
+      </label>
+
+      <br /><br />
+
+      <span class="scrambled" id="scrambled"></span>
+
+      <br /><br />
+
+      <input type="text" id="answer" size="20" autocomplete="off" />
+
+      <button type="submit">Check</button>
+
+      <br /><br />
+
+      <span id="score">score: 0</span>
+
+      <br /><br />
+
+      <span id="highscore">high score: 0</span>
+
+      <br /><br />
+
+      <span id="message"></span>
+    </form>
+
+    <script>
+      // GAME VARIABLES
+
+      var currentCategory = "food";
+      var score = 0;
+      var wordList = [];
+      var curWord = "";
+
+      // LOAD SAVED HIGH SCORE
+
+      var highScore = Number(localStorage.getItem("highScore")) || 0;
+
+      // GET WORD LIST
+
+      function getWordList(category) {
+        var listID = category === "food" ? "foodlist" : "countrylist";
+
+        var text = document.getElementById(listID).innerText;
+
+        return text
+          .split("\n")
+          .map(function (word) {
+            return word.trim();
+          })
+          .filter(function (word) {
+            return word.length > 0;
+          });
+      }
+
+      // GET RANDOM WORD
+
+      function randomWord() {
+        var randomIndex = Math.floor(Math.random() * wordList.length);
+
+        return wordList[randomIndex];
+      }
+
+      // SCRAMBLE WORD
+
+      function Scramble(word) {
+        var words = word.split(" ");
+
+        var scrambledWords = words.map(function (currentWord) {
+          var letters = currentWord.split("");
+          var shuffled;
+
+          do {
+            shuffled = letters.slice();
+
+            for (var i = shuffled.length - 1; i > 0; i--) {
+              var j = Math.floor(Math.random() * (i + 1));
+
+              var temp = shuffled[i];
+              shuffled[i] = shuffled[j];
+              shuffled[j] = temp;
+            }
+          } while (shuffled.join("") === currentWord && currentWord.length > 1);
+
+          return shuffled.join("");
+        });
+
+        return scrambledWords.join(" ");
+      }
+
+      // DISPLAY SCRAMBLED WORD
+
+      function SetScrambledWord() {
+        curWord = randomWord();
+
+        var scrambledWord = Scramble(curWord);
+
+        document.getElementById("scrambled").textContent = scrambledWord;
+
+        document.getElementById("answer").value = "";
+      }
+
+      // UPDATE SCORE
+
+      function SetScore(newScore) {
+        score = newScore;
+
+        document.getElementById("score").textContent = "score: " + score;
+      }
+
+      // UPDATE HIGH SCORE
+
+      function SetHighScore() {
+        if (score > highScore) {
+          highScore = score;
+
+          localStorage.setItem("highScore", highScore);
+        }
+
+        document.getElementById("highscore").textContent =
+          "high score: " + highScore;
+      }
+
+      // WIN MESSAGE
+
+      function WinMessage() {
+        var message = score + " point(s),";
+
+        if (score >= 50) {
+          message += " masterchef!!!!!";
+        } else if (score >= 40) {
+          message += " great job!!";
+        } else if (score >= 30) {
+          message += " well done!";
+        } else if (score >= 20) {
+          message += " nice going!";
+        } else if (score >= 10) {
+          message += " not bad!";
+        } else if (score >= 5) {
+          message += " one small step at a time...";
+        } else {
+          message += " you can do better.";
+        }
+
+        var messageElement = document.getElementById("message");
+
+        messageElement.textContent = message;
+        messageElement.style.color = "green";
+        messageElement.style.backgroundColor = "lightgreen";
+        messageElement.style.display = "inline-block";
+      }
+
+      // START GAME
+
+      function StartGame(category) {
+        currentCategory = category;
+
+        wordList = getWordList(category);
+
+        // CHANGE BACKGROUND COLOUR
+
+        if (category === "food") {
+          document.body.className = "food-background";
+
+          document.getElementById("instruction").textContent =
+            "Unscramble these letters to form the name of a food or drink:";
+        } else {
+          document.body.className = "country-background";
+
+          document.getElementById("instruction").textContent =
+            "Unscramble these letters to form the name of a country:";
+        }
+
+        // RESET SCORE
+
+        SetScore(0);
+
+        // HIDE MESSAGE AND BACKGROUND
+
+        var messageElement = document.getElementById("message");
+
+        messageElement.textContent = "";
+        messageElement.style.backgroundColor = "transparent";
+        messageElement.style.display = "none";
+
+        SetScrambledWord();
+      }
+
+      // FOOD EDITION BUTTON
+
+      document
+        .querySelector(".foodedition")
+        .addEventListener("click", function () {
+          StartGame("food");
+        });
+
+      // COUNTRY EDITION BUTTON
+
+      document
+        .querySelector(".countryedition")
+        .addEventListener("click", function () {
+          StartGame("country");
+        });
+
+      // CHECK ANSWER
+
+      document
+        .getElementById("joke-form")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+
+          var givenAnswer = document
+            .getElementById("answer")
+            .value.trim()
+            .toUpperCase();
+
+          var correctAnswer = curWord.toUpperCase();
+
+          var messageElement = document.getElementById("message");
+
+          if (givenAnswer === correctAnswer) {
+            // CORRECT ANSWER
+
+            SetScore(score + 1);
+
+            SetHighScore();
+
+            WinMessage();
+
+            SetScrambledWord();
+          } else {
+            // WRONG ANSWER
+
+            SetScore(0);
+
+            messageElement.textContent =
+              "Wrong answer! The correct answer was " + curWord + ".";
+
+            messageElement.style.color = "red";
+            messageElement.style.backgroundColor = "pink";
+            messageElement.style.display = "inline-block";
+
+            SetScrambledWord();
+          }
+        });
+
+      // INITIALIZE GAME
+
+      SetHighScore();
+
+      StartGame("food");
+    </script>
+  </body>
+</html>

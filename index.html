@@ -234,6 +234,71 @@
         padding: 26px;
       }
 
+      .preview-word {
+        background: #ead3ae;
+      }
+
+      .word-preview {
+        width: 78%;
+        min-height: 220px;
+        padding: 22px;
+        border: 1px solid #9b7a54;
+        border-radius: 8px;
+        background: #fffaf1;
+        box-shadow: 10px 12px 0 rgba(91, 71, 48, 0.1);
+      }
+
+      .word-preview h3 {
+        margin: 0 0 18px;
+        font-family: "Manrope", sans-serif;
+        font-size: 20px;
+      }
+
+      .word-preview .edition-buttons {
+        display: flex;
+        gap: 8px;
+        margin-bottom: 20px;
+      }
+
+      .edition-buttons i {
+        height: 28px;
+        width: 96px;
+        border-radius: 4px;
+        background: #8aa55b;
+      }
+
+      .edition-buttons i:last-child {
+        width: 112px;
+        background: #4b8748;
+      }
+
+      .scramble-preview {
+        margin-bottom: 14px;
+        color: #8a4d28;
+        font-family: monospace;
+        font-size: 27px;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+      }
+
+      .answer-preview {
+        display: grid;
+        grid-template-columns: 1fr 68px;
+        gap: 8px;
+      }
+
+      .answer-preview i {
+        height: 34px;
+        border: 1px solid #c9b99f;
+        border-radius: 3px;
+        background: white;
+      }
+
+      .answer-preview i:last-child {
+        border: 0;
+        background: #b2a07f;
+      }
+
       .fair-window {
         width: 78%;
         height: 235px;
@@ -592,11 +657,29 @@
               A collection of small web experiences exploring layout, motion,
               and creative code.
             </p>
-            <div class="count"><strong>06</strong> completed projects</div>
+            <div class="count"><strong>07</strong> completed projects</div>
           </div>
         </section>
 
         <section class="projects" aria-label="Completed projects">
+          <a class="project-card" href="./WordGame/index.html">
+            <div class="preview preview-word">
+              <div class="word-preview" aria-hidden="true">
+                <h3>Word Game!</h3>
+                <div class="edition-buttons"><i></i><i></i></div>
+                <div class="scramble-preview">ELPP A</div>
+                <div class="answer-preview"><i></i><i></i></div>
+              </div>
+            </div>
+            <div class="project-info">
+              <div>
+                <h2>Word Game</h2>
+                <p>JavaScript · Puzzle</p>
+              </div>
+              <span class="arrow" aria-hidden="true">↗</span>
+            </div>
+          </a>
+
           <a class="project-card" href="./RegistrationWebsite/index.html">
             <div class="preview preview-registration">
               <div class="fair-window" aria-hidden="true">
