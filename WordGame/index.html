@@ -7,20 +7,22 @@
     <style>
       body {
         font-family: "Times New Roman", sans-serif;
+        text-align: center;
+        font-size: 30px;
       }
 
       .foodedition {
         color: brown;
-        font-size: 0.84em;
         margin: 5px;
         margin-left: 10px;
+        font-size: 0.8em;
       }
 
       .countryedition {
         color: green;
-        font-size: 0.84em;
         margin: 5px;
         margin-left: 10px;
+        font-size: 0.8em;
       }
 
       .scrambled,
@@ -65,6 +67,18 @@
         font-size: 1.2em;
         font-family: monospace;
       }
+
+      #hint {
+        font-size: 1em;
+        font-family: monospace;
+        color: darkblue;
+      }
+      #hintbutton {
+        font-size: 1em;
+        font-family: monospace;
+        color: darkblue;
+        margin: 5px;
+      }
     </style>
   </head>
 
@@ -79,46 +93,51 @@
 
     <!-- FOOD WORDLIST -->
     <div class="wordlist" id="foodlist">
-      Apple Bacon Bagel Banana Barbecue Beans Beef Beer Biscuit Bread Broccoli
-      Brownie Burger Burrito Butter Cake Candy Caramel Carrot Cashew Cauliflower
-      Cereal Cheese Cheesecake Cherries Chicken Chickpeas Chocolate Cinnamon
-      Coconut Coffee Cookie Corn Cornbread Croissant Cucumber Curry Donut
-      Dumpling Egg Enchilada Falafel Garlic Gelato Ginger Grapes Ham Hamburger
-      Honey Hummus Jam Kebab Ketchup Kimchi Lasagna Lemon Lentils Lobster Mango
-      Mayonnaise Meatballs Milk Milkshake Muffin Mushrooms Nachos Noodles
-      Oatmeal Onion Orange Pancake Pasta Peach Pear Peas Pho Pie Pineapple Pizza
-      Popcorn Pork Potato Pretzel Pudding Quesadilla Ramen Rice Salad Salmon
-      Salsa Sandwich Sausage Shrimp Soup Spaghetti Steak Strawberry Sushi Taco
-      Toast
+      Apple|Bacon|Bagel|Banana|Barbecue|Beans|Beef|Beer|Biscuit|Bread|
+      Broccoli|Brownie|Burger|Burrito|Butter|Cake|Candy|Caramel|Carrot|
+      Cashew|Cauliflower|Cereal|Cheese|Cheesecake|Cherries|Chicken|
+      Chickpea|Chocolate|Cinnamon|Coconut|Coffee|Cookie|Corn|Cornbread|
+      Croissant|Cucumber|Curry|Donut|Dumpling|Egg|Enchilada|Falafel|
+      Garlic|Gelato|Ginger|Grapes|Ham|Hamburger|Honey|Hummus|Jam|Kebab|
+      Ketchup|Kimchi|Lasagna|Lemon|Lentils|Lobster|Mango|Mayonnaise|
+      Meatballs|Milk|Milkshake|Muffin|Mushrooms|Nachos|Noodles|Oatmeal|
+      Onion|Orange|Pancake|Pasta|Peach|Pear|Peas|Pho|Pie|Pineapple|Pizza|
+      Popcorn|Pork|Potato|Pretzel|Pudding|Quesadilla|Ramen|Rice|Salad|
+      Salmon|Salsa|Sandwich|Sausage|Shrimp|Soup|Spaghetti|Steak|
+      Strawberry|Sushi|Taco|Toast
     </div>
 
     <!-- COUNTRY WORDLIST -->
     <div class="wordlist" id="countrylist">
-      Afghanistan Albania Algeria Andorra Angola Argentina Armenia Australia
-      Austria Azerbaijan Bahamas Bahrain Bangladesh Barbados Belarus Belgium
-      Belize Benin Bhutan Bolivia Botswana Brazil Brunei Bulgaria Burkina Faso
-      Burundi Cabo Verde Cambodia Cameroon Canada Central African Republic Chad
-      Chile China Colombia Comoros Costa Rica Croatia Cuba Cyprus Czechia
-      Democratic Republic of the Congo Denmark Djibouti Dominica Dominican
-      Republic Ecuador Egypt El Salvador Equatorial Guinea Eritrea Estonia
-      Eswatini Ethiopia Fiji Finland France Gabon Gambia Georgia Germany Ghana
-      Greece Grenada Guatemala Guinea Guinea-Bissau Guyana Haiti Holy See
-      Honduras Hungary Iceland India Indonesia Iran Iraq Ireland Israel Italy
-      Ivory Coast Jamaica Japan Jordan Kazakhstan Kenya Kiribati Kuwait
-      Kyrgyzstan Laos Latvia Lebanon Lesotho Liberia Libya Liechtenstein
-      Lithuania Luxembourg Madagascar Malawi Malaysia Maldives Mali Malta
-      Marshall Islands Mauritania Mauritius Mexico Micronesia Moldova Monaco
-      Mongolia Montenegro Morocco Mozambique Myanmar Namibia Nauru Nepal
-      Netherlands New Zealand Nicaragua Niger Nigeria North Korea North
-      Macedonia Norway Oman Pakistan Palau Palestine State Panama Papua New
-      Guinea Paraguay Peru Philippines Poland Portugal Qatar Republic of the
-      Congo Romania Russia Rwanda Saint Lucia Samoa San Marino Saudi Arabia
-      Senegal Serbia Seychelles Sierra Leone Singapore Slovakia Slovenia Solomon
-      Islands Somalia South Africa South Korea South Sudan Spain Sri Lanka Sudan
-      Suriname Sweden Switzerland Syria Tajikistan Tanzania Thailand Timor-Leste
-      Togo Tonga Tunisia Turkey Turkmenistan Tuvalu Uganda Ukraine United Arab
-      Emirates United Kingdom United States of America Uruguay Uzbekistan
-      Vanuatu Venezuela Vietnam Yemen Zambia Zimbabwe
+      Afghanistan|Albania|Algeria|Andorra|Angola|Argentina|Armenia|
+      Australia|Austria|Azerbaijan|Bahamas|Bahrain|Bangladesh|Barbados|
+      Belarus|Belgium|Belize|Benin|Bhutan|Bolivia|Botswana|Brazil|Brunei|
+      Bulgaria|Burkina Faso|Burundi|Cabo Verde|Cambodia|Cameroon|Canada|Central
+      African Republic| Chad|Chile|China|Colombia|Comoros|Costa
+      Rica|Croatia|Cuba|Cyprus|Czechia|Democratic Republic of the
+      Congo|Denmark|Djibouti|Dominica|Dominican Republic|Ecuador|Egypt|El
+      Salvador|Equatorial Guinea|
+      Eritrea|Estonia|Eswatini|Ethiopia|Fiji|Finland|France|Gabon|
+      Gambia|Georgia|Germany|Ghana|Greece|Grenada|Guatemala|Guinea|
+      Guinea-Bissau|Guyana|Haiti|Holy See|Honduras|Hungary|Iceland|
+      India|Indonesia|Iran|Iraq|Ireland|Israel|Italy|Ivory Coast|Jamaica|
+      Japan|Jordan|Kazakhstan|Kenya|Kiribati|Kuwait|Kyrgyzstan|Laos|
+      Latvia|Lebanon|Lesotho|Liberia|Libya|Liechtenstein|Lithuania|
+      Luxembourg|Madagascar|Malawi|Malaysia|Maldives|Mali|Malta|Marshall
+      Islands|Mauritania|Mauritius|Mexico|Micronesia|Moldova|
+      Monaco|Mongolia|Montenegro|Morocco|Mozambique|Myanmar|Namibia|
+      Nauru|Nepal|Netherlands|New Zealand|Nicaragua|Niger|Nigeria|North
+      Korea|North Macedonia|Norway|Oman|Pakistan|Palau|Palestine
+      State|Panama|Papua New Guinea|Paraguay|Peru|Philippines|
+      Poland|Portugal|Qatar|Republic of the Congo|Romania|Russia|Rwanda|Saint
+      Lucia|Samoa|San Marino|Saudi Arabia|Senegal|Serbia|Seychelles|Sierra
+      Leone|Singapore| Slovakia|Slovenia|Solomon Islands|Somalia|South Africa|
+      South Korea|South Sudan|Spain|Sri
+      Lanka|Sudan|Suriname|Sweden|Switzerland|Syria|
+      Tajikistan|Tanzania|Thailand|Timor-Leste|Togo|Tonga|Tunisia|
+      Turkey|Turkmenistan|Tuvalu|Uganda|Ukraine|United Arab Emirates|United
+      Kingdom|United States of America|Uruguay|Uzbekistan|
+      Vanuatu|Venezuela|Vietnam|Yemen|Zambia|Zimbabwe
     </div>
 
     <!-- GAME -->
@@ -137,7 +156,13 @@
 
       <button type="submit">Check</button>
 
-      <br /><br />
+      <br />
+      <!-- HINT BUTTON (ADDED) -->
+      <button type="button" id="hintbutton" disabled>
+        Hint (-1 score)(F2)
+      </button>
+
+      <p id="hint"></p>
 
       <span id="score">score: 0</span>
 
@@ -158,6 +183,9 @@
       var wordList = [];
       var curWord = "";
 
+      // ADDED: TRACK WHETHER A HINT HAS BEEN USED
+      var hintUsed = false;
+
       // LOAD SAVED HIGH SCORE
 
       var highScore = Number(localStorage.getItem("highScore")) || 0;
@@ -167,10 +195,10 @@
       function getWordList(category) {
         var listID = category === "food" ? "foodlist" : "countrylist";
 
-        var text = document.getElementById(listID).innerText;
+        var text = document.getElementById(listID).textContent;
 
         return text
-          .split("\n")
+          .split("|")
           .map(function (word) {
             return word.trim();
           })
@@ -190,7 +218,11 @@
       // SCRAMBLE WORD
 
       function Scramble(word) {
+        // Separate the sentence into individual words
+
         var words = word.split(" ");
+
+        // Scramble each word independently
 
         var scrambledWords = words.map(function (currentWord) {
           var letters = currentWord.split("");
@@ -224,6 +256,11 @@
         document.getElementById("scrambled").textContent = scrambledWord;
 
         document.getElementById("answer").value = "";
+
+        // ADDED: RESET HINT FOR THE NEW WORD
+        hintUsed = false;
+        document.getElementById("hint").textContent = "";
+        document.getElementById("hintbutton").disabled = score < 1;
       }
 
       // UPDATE SCORE
@@ -232,6 +269,9 @@
         score = newScore;
 
         document.getElementById("score").textContent = "score: " + score;
+
+        // Enable hint only when the player has at least 1 point
+        document.getElementById("hintbutton").disabled = score < 1;
       }
 
       // UPDATE HIGH SCORE
@@ -253,7 +293,7 @@
         var message = score + " point(s),";
 
         if (score >= 50) {
-          message += " masterchef!!!!!";
+          message += " champion!!!!";
         } else if (score >= 40) {
           message += " great job!!";
         } else if (score >= 30) {
@@ -328,6 +368,45 @@
           StartGame("country");
         });
 
+      // ADDED: HINT SYSTEM
+
+      document
+        .getElementById("hintbutton")
+        .addEventListener("click", function () {
+          // ONLY ONE HINT PER WORD
+
+          if (hintUsed) {
+            return;
+          }
+
+          // REVEAL THE SECOND LETTER
+
+          var secondLetter = curWord.charAt(1);
+
+          document.getElementById("hint").textContent =
+            "Hint: The second letter is " + secondLetter + ".";
+
+          // DEDUCT ONE POINT, BUT NEVER GO BELOW ZERO
+
+          SetScore(Math.max(0, score - 1));
+
+          // MARK HINT AS USED
+
+          hintUsed = true;
+
+          document.getElementById("hintbutton").disabled = true;
+        });
+      // HINT KEYBIND (F2)
+
+      window.addEventListener("keydown", function (event) {
+        if (event.key === "F2") {
+          event.preventDefault();
+
+          if (!document.getElementById("hintbutton").disabled) {
+            document.getElementById("hintbutton").click();
+          }
+        }
+      });
       // CHECK ANSWER
 
       document
@@ -338,9 +417,10 @@
           var givenAnswer = document
             .getElementById("answer")
             .value.trim()
-            .toUpperCase();
+            .replace(/\s+/g, " ")
+            .toLowerCase();
 
-          var correctAnswer = curWord.toUpperCase();
+          var correctAnswer = curWord.trim().replace(/\s+/g, " ").toLowerCase();
 
           var messageElement = document.getElementById("message");
 
@@ -360,7 +440,11 @@
             SetScore(0);
 
             messageElement.textContent =
-              "Wrong answer! The correct answer was " + curWord + ".";
+              "Wrong! The correct answer was '" +
+              curWord +
+              "'. You said '" +
+              givenAnswer +
+              "'.";
 
             messageElement.style.color = "red";
             messageElement.style.backgroundColor = "pink";
